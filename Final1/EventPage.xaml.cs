@@ -30,14 +30,10 @@ namespace Final1
 
         async void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
-
             var selected = (Event)e.Item;
-            string fixedurl = selected.Url.OriginalString;
-            fixedurl.Replace("www.ticketmaster.com", "www1.ticketmaster.com");
-            var fix = fixedurl.ToString();
-            fix.Replace("www", "www1");
+            string fixedurl = selected.Url.OriginalString.ToString();
+            fixedurl = fixedurl.Replace("www", "www1");
             await Navigation.PushAsync(new WebPage(fixedurl), true);
-
         }
     }
 }
