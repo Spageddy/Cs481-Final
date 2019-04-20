@@ -28,6 +28,8 @@ namespace Final1
                 var location = locations?.FirstOrDefault();
                 if (location != null)
                 {
+                    latitude = location.Latitude;
+                    longitude = location.Longitude;
                     Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
                 }
             }
@@ -51,6 +53,8 @@ namespace Final1
 
                 if (location != null)
                 {
+                    latitude = location.Latitude;
+                    longitude = location.Longitude;
                     Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
                 }
             }

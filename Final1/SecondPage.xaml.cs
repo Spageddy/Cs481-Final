@@ -10,8 +10,9 @@ namespace Final1
         public SecondPage()
         {
             InitializeComponent();
-            Children.Add(new WeatherPage() { Title = "weather" });
-
+            Children.Add(new WeatherPage() { Title = "Weather" });
+            Children.Add(new YelpPage() { Title = "Food" });
+            Children.Add(new EventPage() { Title = "Events" });
         }
     }
 }
