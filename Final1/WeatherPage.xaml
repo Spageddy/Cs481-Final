@@ -1,8 +1,99 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Final1.WeatherPage">
     <ContentPage.Content>
+
+        <Grid>
+        
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+           <StackLayout 
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.Row="0"
+                        x:Name="Icon"
+
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        />
+                     <Label
+                        Grid.Row="1"
+                        x:Name="Condtion"
+                        Text="Condition"
+                        />
+                    <Label
+                        Grid.Row="2"
+                        x:Name="Temperature"
+                        Text="Temperature"
+                        />
+                   </Grid>
+           </StackLayout> 
+           <StackLayout
+                Grid.Row="2"
+                Grid.Column="0"
+                Orientation="Horizontal">
+            <Image
+               x:Name="humdityIcon"
+               />
+            <Label
+               x:Name="humidty"
+               Text="Humdity"
+                />
+           </StackLayout>
+           <StackLayout
+                Grid.Row="2"
+                Grid.Column="1"
+                Orientation="Horizontal">
+            <Image
+               x:Name="WindIcon"
+               />
+            <Label
+               x:Name="Wind"
+               Text="Wind"
+                />
+           </StackLayout>
+           <StackLayout
+                Grid.Row="3"
+                Grid.Column="0"
+                Orientation="Horizontal">
+            <Image
+               x:Name="uvIcon"
+               />
+            <Label
+               x:Name="UV"
+               Text="UV"
+                />
+           </StackLayout>
+           <StackLayout
+                Grid.Row="3"
+                Grid.Column="1"
+                Orientation="Horizontal">
+            <Image
+               x:Name="pressureIcon"
+               />
+            <Label
+               x:Name="Pressure"
+               Text="Pressure"
+                />
+           </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
