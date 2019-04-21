@@ -12,8 +12,9 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -94,6 +95,40 @@
                Text="Pressure"
                 />
            </StackLayout>
+           <ListView
+                HasUnevenRows="true"
+                Grid.Row="4"
+                Grid.ColumnSpan="2"
+                Grid.RowSpan="2"
+                x:Name="WeeklyWeatherListview">
+                
+                <ListView.ItemTemplate>
+                    
+                    <DataTemplate>
+                      
+                        <ViewCell >
+                            <StackLayout>
+                                <Label 
+                                    x:Name="Weekday"
+                                    Text="{Binding Day, StringFormat='{0:ddd}'}"
+                                    />
+                                <StackLayout Orientation="Horizontal">
+                                <Image
+                                    x:Name="weekIcon"/>
+                                <Label
+                                    x:Name="weekTemperatureHigh"
+                                    Text="{Binding TemperatureHigh}"
+                                />
+                                <Label
+                                    x:Name="weekTemperatureLow"
+                                    Text="{Binding TemperatureLow}"
+                                />
+                                 </StackLayout>   
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+           </ListView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
