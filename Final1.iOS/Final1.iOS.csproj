@@ -152,6 +152,9 @@
     <PackageReference Include="Xamarin.Essentials">
       <Version>1.1.0</Version>
     </PackageReference>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
+      <Version>2.7.1</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -159,5 +162,17 @@
       <Project>{7DB1544C-1232-4509-9917-88C562F4A0FA}</Project>
       <Name>Final1</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\clear-day.json" />
+    <BundleResource Include="Resources\clear-night.json" />
+    <BundleResource Include="Resources\cloudy.json" />
+    <BundleResource Include="Resources\fog.json" />
+    <BundleResource Include="Resources\partly-cloudy-day.json" />
+    <BundleResource Include="Resources\partly-cloudy-night.json" />
+    <BundleResource Include="Resources\rain.json" />
+    <BundleResource Include="Resources\sleet.json" />
+    <BundleResource Include="Resources\snow.json" />
+    <BundleResource Include="Resources\wind.json" />
   </ItemGroup>
 </Project>

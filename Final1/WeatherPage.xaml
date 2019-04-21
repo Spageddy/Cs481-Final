@@ -2,9 +2,12 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
     x:Class="Final1.WeatherPage">
+   
     <ContentPage.Content>
-
+    
+      
         <Grid>
         
             <Grid.ColumnDefinitions>
@@ -24,25 +27,28 @@
                 Grid.ColumnSpan="2">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="10*"/>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="4*"/>
                     </Grid.RowDefinitions>
-                    <Image
-                        Grid.Row="0"
-                        x:Name="Icon"
-
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand"
-                        />
+                    <forms:AnimationView 
+                        x:Name="currentanimationView" 
+                        Grid.Row="0" 
+                        Loop="true"
+                        AutoPlay="true"
+                        VerticalOptions="FillAndExpand" 
+                        HorizontalOptions="FillAndExpand" />
                      <Label
                         Grid.Row="1"
                         x:Name="Condtion"
+                        HorizontalTextAlignment="Center"
                         Text="Condition"
                         />
                     <Label
                         Grid.Row="2"
                         x:Name="Temperature"
+                        HorizontalTextAlignment="Center"
+                        FontSize="Large"
                         Text="Temperature"
                         />
                    </Grid>
@@ -57,6 +63,7 @@
             <Label
                x:Name="humidty"
                Text="Humdity"
+               VerticalTextAlignment="Center"
                 />
            </StackLayout>
            <StackLayout
@@ -69,6 +76,7 @@
             <Label
                x:Name="Wind"
                Text="Wind"
+                VerticalTextAlignment="Center"
                 />
            </StackLayout>
            <StackLayout
@@ -81,6 +89,7 @@
             <Label
                x:Name="UV"
                Text="UV"
+               VerticalTextAlignment="Center"
                 />
            </StackLayout>
            <StackLayout
@@ -93,6 +102,7 @@
             <Label
                x:Name="Pressure"
                Text="Pressure"
+                VerticalTextAlignment="Center"
                 />
            </StackLayout>
            <ListView
@@ -103,26 +113,33 @@
                 x:Name="WeeklyWeatherListview">
                 
                 <ListView.ItemTemplate>
-                    
                     <DataTemplate>
-                      
                         <ViewCell >
-                            <StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <forms:AnimationView 
+                                    x:Name="weekanimationView" 
+                                    Animation="{Binding Icon}"
+                                    Loop="true"
+                                    AutoPlay="true"
+                                    HeightRequest="50"
+                                    WidthRequest="50"
+                                    VerticalOptions="FillAndExpand" 
+                                    HorizontalOptions="FillAndExpand" />
+                                <StackLayout Orientation="Vertical" HorizontalOptions="Center">
                                 <Label 
-                                    x:Name="Weekday"
-                                    Text="{Binding Day, StringFormat='{0:ddd}'}"
+                                    x:Name="Weekly"
+                                    Text="{Binding Day, StringFormat='{0: dddd}'}"
                                     />
-                                <StackLayout Orientation="Horizontal">
-                                <Image
-                                    x:Name="weekIcon"/>
+                                    <StackLayout Orientation="Horizontal">
                                 <Label
-                                    x:Name="weekTemperatureHigh"
-                                    Text="{Binding TemperatureHigh}"
-                                />
-                                <Label
-                                    x:Name="weekTemperatureLow"
-                                    Text="{Binding TemperatureLow}"
-                                />
+                                    x:Name="WeeklyTemperatureHi"
+                                    Text="{Binding TemperatureHigh, StringFormat='HI: {0}°'}"
+                                     />
+                                 <Label
+                                    x:Name="WeeklyTemperatureLo"
+                                    Text="{Binding TemperatureLow, StringFormat='LO: {0}°'}"
+                                     />
+                               </StackLayout>
                                  </StackLayout>   
                             </StackLayout>
                         </ViewCell>

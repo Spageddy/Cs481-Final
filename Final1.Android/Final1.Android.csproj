@@ -60,6 +60,9 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.1</Version>
     </PackageReference>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
+      <Version>2.7.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -101,6 +104,18 @@
       <Project>{7DB1544C-1232-4509-9917-88C562F4A0FA}</Project>
       <Name>Final1</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\clear-day.json" />
+    <AndroidAsset Include="Assets\clear-night.json" />
+    <AndroidAsset Include="Assets\cloudy.json" />
+    <AndroidAsset Include="Assets\fog.json" />
+    <AndroidAsset Include="Assets\partly-cloudy-day.json" />
+    <AndroidAsset Include="Assets\partly-cloudy-night.json" />
+    <AndroidAsset Include="Assets\rain.json" />
+    <AndroidAsset Include="Assets\sleet.json" />
+    <AndroidAsset Include="Assets\snow.json" />
+    <AndroidAsset Include="Assets\wind.json" />
   </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
