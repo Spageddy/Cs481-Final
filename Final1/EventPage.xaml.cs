@@ -12,8 +12,9 @@ namespace Final1
         public EventPage()
         {
             InitializeComponent();
+            GetEvents();
         }
-        async void GetEvents(object sender, System.EventArgs e)
+        async void GetEvents()
         {
             var client = new HttpClient();
             var ApiUrl = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=PJeGbONJHPxGuVvtDd3LfzXUxdFCOfBn\n&source=ticketmaster&latlong="
