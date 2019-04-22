@@ -8,7 +8,6 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <x:Double x:Key="size">50</x:Double>
-            <x:String x:Key="option">Center</x:String>
             <Color x:Key="color">#C0C0C0</Color>
             <Color x:Key="maincolor">#505050</Color>
             <x:Double x:Key="opacity">.5</x:Double>
