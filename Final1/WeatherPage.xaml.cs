@@ -45,10 +45,10 @@ namespace Final1
             currentanimationView.Animation = weather.Currently.Icon + ".json";
             Condtion.Text = weather.Currently.Summary.ToString();
             Temperature.Text = weather.Currently.Temperature.ToString() + "°";
-            humidty.Text = weather.Currently.Humidity.ToString();
-            Wind.Text = weather.Currently.WindSpeed.ToString();
+            humidty.Text = (weather.Currently.Humidity * 100).ToString() + "%";
+            Wind.Text = weather.Currently.WindSpeed.ToString() + "m/s";
             UV.Text = weather.Currently.UvIndex.ToString();
-            Pressure.Text = weather.Currently.Pressure.ToString();
+            Pressure.Text = weather.Currently.Pressure.ToString() + " hPa";
 
         }
     }

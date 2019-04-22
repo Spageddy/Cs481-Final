@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
     x:Class="Final1.WeatherPage">
-   
-    <ContentPage.Content>
-    
-      
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="size">50</x:Double>
+            <x:String x:Key="option">Center</x:String>
+            <Color x:Key="color">#C0C0C0</Color>
+            <Color x:Key="maincolor">#505050</Color>
+            <x:Double x:Key="opacity">.5</x:Double>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>      
         <Grid>
-        
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -43,13 +50,17 @@
                         x:Name="Condtion"
                         HorizontalTextAlignment="Center"
                         Text="Condition"
+                        TextColor="{DynamicResource Key=maincolor}"
+                        
                         />
                     <Label
                         Grid.Row="2"
                         x:Name="Temperature"
                         HorizontalTextAlignment="Center"
-                        FontSize="Large"
+                        VerticalTextAlignment="Center"
+                        FontSize="{DynamicResource Key=size}"
                         Text="Temperature"
+                        TextColor="{DynamicResource Key=maincolor}"
                         />
                    </Grid>
            </StackLayout> 
@@ -59,11 +70,19 @@
                 Orientation="Horizontal">
             <Image
                x:Name="humdityIcon"
+               Source="humidity.png"
+               HeightRequest="{DynamicResource Key=size}"
+               WidthRequest="{DynamicResource Key=size}"
+               HorizontalOptions="Center"
+               Opacity="{DynamicResource Key=opacity}"
                />
             <Label
                x:Name="humidty"
                Text="Humdity"
+               FontSize="Large"
+               HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center"
+               TextColor="{DynamicResource Key=color}"
                 />
            </StackLayout>
            <StackLayout
@@ -71,12 +90,19 @@
                 Grid.Column="1"
                 Orientation="Horizontal">
             <Image
-               x:Name="WindIcon"
+                x:Name="WindIcon"
+                Source="wind.png"
+                HeightRequest="{DynamicResource Key=size}"
+                WidthRequest="{DynamicResource Key=size}"
+                Opacity="{DynamicResource Key=opacity}"
                />
             <Label
-               x:Name="Wind"
-               Text="Wind"
-                VerticalTextAlignment="Center"
+                x:Name="Wind"
+                FontSize="Large"
+                Text="Wind"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+                TextColor="{DynamicResource Key=color}"
                 />
            </StackLayout>
            <StackLayout
@@ -85,11 +111,18 @@
                 Orientation="Horizontal">
             <Image
                x:Name="uvIcon"
+               Source="uv.png"
+               HeightRequest="{DynamicResource Key=size}"
+               WidthRequest="{DynamicResource Key=size}"
+               Opacity="{DynamicResource Key=opacity}"
                />
             <Label
                x:Name="UV"
                Text="UV"
+               FontSize="Large"     
+               HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center"
+                TextColor="{DynamicResource Key=color}"
                 />
            </StackLayout>
            <StackLayout
@@ -98,11 +131,19 @@
                 Orientation="Horizontal">
             <Image
                x:Name="pressureIcon"
+               Source="pressure.png"
+               HeightRequest="{DynamicResource Key=size}"
+               WidthRequest="{DynamicResource Key=size}"
+               Opacity="{DynamicResource Key=opacity}"
                />
             <Label
                x:Name="Pressure"
                Text="Pressure"
-                VerticalTextAlignment="Center"
+                FontSize="Large"    
+                HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+                 TextColor="{DynamicResource Key=color}"
+                 Opacity="{DynamicResource Key=opacity}"
                 />
            </StackLayout>
            <ListView
@@ -121,23 +162,26 @@
                                     Animation="{Binding Icon}"
                                     Loop="true"
                                     AutoPlay="true"
-                                    HeightRequest="50"
-                                    WidthRequest="50"
+                                    HeightRequest="{DynamicResource Key=size}"
+                                    WidthRequest="{DynamicResource Key=size}"
                                     VerticalOptions="FillAndExpand" 
                                     HorizontalOptions="FillAndExpand" />
                                 <StackLayout Orientation="Vertical" HorizontalOptions="Center">
                                 <Label 
                                     x:Name="Weekly"
                                     Text="{Binding Day, StringFormat='{0: dddd}'}"
+                                     TextColor="{DynamicResource Key=maincolor}"
                                     />
                                     <StackLayout Orientation="Horizontal">
                                 <Label
                                     x:Name="WeeklyTemperatureHi"
                                     Text="{Binding TemperatureHigh, StringFormat='HI: {0}°'}"
+                                     TextColor="{DynamicResource Key=color}"
                                      />
                                  <Label
                                     x:Name="WeeklyTemperatureLo"
                                     Text="{Binding TemperatureLow, StringFormat='LO: {0}°'}"
+                                      TextColor="{DynamicResource Key=color}"
                                      />
                                </StackLayout>
                                  </StackLayout>   
