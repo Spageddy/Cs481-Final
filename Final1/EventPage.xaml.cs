@@ -25,9 +25,7 @@ namespace Final1
             var response = await client.GetAsync(uri);
             var jsonContent = await response.Content.ReadAsStringAsync();
             ticketmasterevents = JsonConvert.DeserializeObject<TicketMaster>(jsonContent);
-            var tme = ticketmasterevents.Embedded;
-            TicketMasterList.ItemsSource = ticketmasterevents.Embedded.Events;
-        }
+            TicketMasterList.ItemsSource = ticketmasterevents.Embedded.Events;        }
 
         async void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {

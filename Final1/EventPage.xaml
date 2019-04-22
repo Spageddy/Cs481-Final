@@ -3,6 +3,15 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Final1.EventPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="size">50</x:Double>
+            <x:Double x:Key="sizesmaller">20</x:Double>
+            <x:Double x:Key="sizesmallest">20</x:Double>
+            <Color x:Key="color">#C0C0C0</Color>
+            <Color x:Key="maincolor">#505050</Color>
+        </ResourceDictionary>
+        </ContentPage.Resources>
     <ContentPage.Content>
                 <ListView 
            ItemTapped="Handle_ItemTapped"
@@ -17,7 +26,7 @@
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
@@ -26,26 +35,48 @@
                                 Grid.Row="0"
                                 Grid.RowSpan="3"
                                 Aspect="AspectFill"
-                                
+                                HeightRequest="{DynamicResource Key=size}"
+                                WidthRequest="{DynamicResource Key=size}"
                                 >
                                 <Image.Source>
-                                    <UriImageSource Uri="{Binding Images[0].Url}"/>
+                                    <UriImageSource Uri="{Binding Images[9].Url}"/>
                                 </Image.Source>
                             </Image>
                             
                             <Label Text="{Binding Name}"
                                    Grid.Column="1"
                                    Grid.Row="0"
-                                   
+                                   FontSize="{DynamicResource Key=sizesmaller}"
+                                   TextColor="{DynamicResource Key=maincolor}"
                                    />
-                            <Label Text="{}"
-                                   Grid.Column="1"
-                                   Grid.Row="1"
-                                   Margin=".3"/>
-                            <Label Text="{}"
+                            <Label Text="{Binding Dates.Start.LocalDate, StringFormat='{0: dddd MMMM/dd @ htt}'}"
                                    Grid.Column="1"
                                    Grid.Row="2"
-                                   Margin=".4"/>
+                                   Margin="0"
+                                   FontSize="{DynamicResource Key=sizesmaller}"
+                                   TextColor="{DynamicResource Key=color}"
+                                   />
+                            <StackLayout 
+                                Grid.Column="1"
+                                Grid.Row="1" 
+                                Orientation="Horizontal">
+                            <Label Text="{Binding Classifications[0].Genre.Name, StringFormat='{0} | '} "
+                                   Margin="0"
+                                   FontSize="{DynamicResource Key=sizesmallest}"
+                                   TextColor="{DynamicResource Key=color}"/>
+                                <Label Text="{Binding Classifications[0].SubGenre.Name, StringFormat='{0} | '}"
+                                   Grid.Column="1"
+                                   Grid.Row="2"
+                                   Margin="0"
+                                   FontSize="{DynamicResource Key=sizesmallest}"
+                                   TextColor="{DynamicResource Key=color}"/>
+                                <Label Text="{Binding Classifications[0].SubType.Name}"
+                                   Grid.Column="1"
+                                   Grid.Row="2"
+                                   Margin="0"
+                                   FontSize="{DynamicResource Key=sizesmallest}"
+                                   TextColor="{DynamicResource Key=color}"/>
+                            </StackLayout>    
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
