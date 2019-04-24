@@ -5,21 +5,21 @@
     x:Class="Final1.EventPage">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <x:Double x:Key="size">50</x:Double>
-            <x:Double x:Key="sizesmaller">20</x:Double>
-            <x:Double x:Key="sizesmallest">20</x:Double>
+            <x:Double x:Key="size">25</x:Double>
+            <x:Double x:Key="sizesmaller">15</x:Double>
+            <x:Double x:Key="sizesmallest">10</x:Double>
             <Color x:Key="color">#C0C0C0</Color>
             <Color x:Key="maincolor">#505050</Color>
         </ResourceDictionary>
         </ContentPage.Resources>
     <ContentPage.Content>
                 <ListView 
-           ItemTapped="Handle_ItemTapped"
+            ItemTapped="Handle_ItemTapped"
             HasUnevenRows="true"
             x:Name="TicketMasterList">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
+                    <ViewCell Height="70">
                        <Grid ColumnSpacing="1" RowSpacing="5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -39,20 +39,21 @@
                                 WidthRequest="{DynamicResource Key=size}"
                                 >
                                 <Image.Source>
-                                    <UriImageSource Uri="{Binding Images[9].Url}"/>
+                                    <UriImageSource Uri="{Binding Images[0].Url}"/>
                                 </Image.Source>
                             </Image>
                             
                             <Label Text="{Binding Name}"
                                    Grid.Column="1"
                                    Grid.Row="0"
-                                   FontSize="{DynamicResource Key=sizesmaller}"
+                                   FontSize="{DynamicResource Key=size}"
                                    TextColor="{DynamicResource Key=maincolor}"
                                    />
-                            <Label Text="{Binding Dates.Start.LocalDate, StringFormat='{0: dddd MMMM/dd @ htt}'}"
+                            <Label Text="{Binding Dates.Start.LocalDate, StringFormat='{0: dddd MMMM/dd}'}"
                                    Grid.Column="1"
                                    Grid.Row="2"
                                    Margin="0"
+                                   VerticalTextAlignment="Start"
                                    FontSize="{DynamicResource Key=sizesmaller}"
                                    TextColor="{DynamicResource Key=color}"
                                    />
@@ -61,19 +62,19 @@
                                 Grid.Row="1" 
                                 Orientation="Horizontal">
                             <Label Text="{Binding Classifications[0].Genre.Name, StringFormat='{0} | '} "
-                                   Margin="0"
+                                   VerticalTextAlignment="Center"
                                    FontSize="{DynamicResource Key=sizesmallest}"
                                    TextColor="{DynamicResource Key=color}"/>
                                 <Label Text="{Binding Classifications[0].SubGenre.Name, StringFormat='{0} | '}"
                                    Grid.Column="1"
                                    Grid.Row="2"
-                                   Margin="0"
+                                   VerticalTextAlignment="Center"
                                    FontSize="{DynamicResource Key=sizesmallest}"
                                    TextColor="{DynamicResource Key=color}"/>
                                 <Label Text="{Binding Classifications[0].SubType.Name}"
                                    Grid.Column="1"
                                    Grid.Row="2"
-                                   Margin="0"
+                                   VerticalTextAlignment="Center"
                                    FontSize="{DynamicResource Key=sizesmallest}"
                                    TextColor="{DynamicResource Key=color}"/>
                             </StackLayout>    
