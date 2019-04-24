@@ -1,8 +1,93 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Final1.YelpPage">
+     <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="size">25</x:Double>
+            <x:Double x:Key="sizesmaller">15</x:Double>
+            <x:Double x:Key="sizesmallest">10</x:Double>
+            <Color x:Key="color">#C0C0C0</Color>
+            <Color x:Key="maincolor">#505050</Color>
+        </ResourceDictionary>
+        </ContentPage.Resources>
     <ContentPage.Content>
+         <ListView 
+            ItemTapped="Handle_ItemTapped"
+            HasUnevenRows="true"
+            x:Name="YelpList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Height="80">
+                       <Grid ColumnSpacing="1" RowSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                Grid.RowSpan="3"
+                                Aspect="AspectFill"
+                                HeightRequest="{DynamicResource Key=size}"
+                                WidthRequest="{DynamicResource Key=size}"
+                                >
+                                <Image.Source>
+                                    <UriImageSource Uri="{Binding ImageUrl}"/>
+                                </Image.Source>
+                            </Image>
+                            
+                            <Label Text="{Binding Name}"
+                                   Grid.Column="1"
+                                   Grid.Row="0"
+                                   FontSize="{DynamicResource Key=size}"
+                                   TextColor="{DynamicResource Key=maincolor}"
+                                   />
+                            <Label Text="{Binding DistanceAway, StringFormat='{0} miles away'}"
+                                   Grid.Column="1"
+                                   Grid.Row="2"
+                                   Margin="0"
+                                   VerticalTextAlignment="Start"
+                                   FontSize="{DynamicResource Key=sizesmaller}"
+                                   TextColor="{DynamicResource Key=color}"
+                                   />
+                            <StackLayout 
+                                Grid.Column="1"
+                                Grid.Row="1" 
+                                Orientation="Horizontal">
+                            <Label Text="{Binding Categories[0].Title, StringFormat='{0} | '} "
+                                   VerticalTextAlignment="Center"
+                                   FontSize="{DynamicResource Key=sizesmallest}"
+                                   TextColor="{DynamicResource Key=color}"/>
+                                <Label Text="{Binding Categories[1].Title, StringFormat='{0} | '}"
+                                   Grid.Column="1"
+                                   Grid.Row="2"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="{DynamicResource Key=sizesmallest}"
+                                   TextColor="{DynamicResource Key=color}"/>
+                                <Label Text="{Binding Price, StringFormat='Price: {0}'}"
+                                   Grid.Column="1"
+                                   Grid.Row="2"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="{DynamicResource Key=sizesmallest}"
+                                   TextColor="{DynamicResource Key=color}"/>
+                                <Label Text="{Binding Rating, StringFormat='Rating: {0}'}"
+                                   Grid.Column="1"
+                                   Grid.Row="2"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="{DynamicResource Key=sizesmallest}"
+                                   TextColor="{DynamicResource Key=color}"/>
+                            </StackLayout>    
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>
