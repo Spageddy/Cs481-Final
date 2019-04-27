@@ -18,7 +18,7 @@ namespace Final1
             GetEvents();
         }
 
-        async void GetEvents()
+        void GetEvents()
         {
             var client = new HttpClient();
             var ApiUrl = "https://www.eventbriteapi.com/v3/events/search/?location.latitude="

@@ -3,12 +3,22 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+    xmlns:xfg="clr-namespace:XFGloss;assembly=XFGloss"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    ios:Page.UseSafeArea="true"
     x:Class="Final1.WeatherPage">
+    <xfg:ContentPageGloss.BackgroundGradient>
+        <xfg:Gradient Rotation="150" >
+            <xfg:GradientStep StepColor="#2c4dae" StepPercentage="0" />
+            <xfg:GradientStep StepColor="#75adbb" StepPercentage=".5" />
+            <xfg:GradientStep StepColor="#dfd0a8" StepPercentage="1" />
+        </xfg:Gradient>
+    </xfg:ContentPageGloss.BackgroundGradient>
     <ContentPage.Resources>
         <ResourceDictionary>
             <x:Double x:Key="size">50</x:Double>
-            <Color x:Key="color">#C0C0C0</Color>
-            <Color x:Key="maincolor">#505050</Color>
+            <Color x:Key="color">White</Color>
+            <Color x:Key="maincolor">White</Color>
             <x:Double x:Key="opacity">.5</x:Double>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -140,11 +150,11 @@
                 FontSize="Large"    
                 HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center"
-                 TextColor="{DynamicResource Key=color}"
-                 Opacity="{DynamicResource Key=opacity}"
+                TextColor="{DynamicResource Key=color}"
                 />
            </StackLayout>
            <ListView
+                BackgroundColor="Transparent"
                 HasUnevenRows="true"
                 Grid.Row="4"
                 Grid.ColumnSpan="2"
@@ -173,12 +183,12 @@
                                     <StackLayout Orientation="Horizontal">
                                 <Label
                                     x:Name="WeeklyTemperatureHi"
-                                    Text="{Binding TemperatureHigh, StringFormat='HI: {0}°'}"
+                                    Text="{Binding TemperatureHigh, StringFormat='HI: {0:0.00}°'}"
                                      TextColor="{DynamicResource Key=color}"
                                      />
                                  <Label
                                     x:Name="WeeklyTemperatureLo"
-                                    Text="{Binding TemperatureLow, StringFormat='LO: {0}°'}"
+                                    Text="{Binding TemperatureLow, StringFormat='LO: {0:0.00}°'}"
                                       TextColor="{DynamicResource Key=color}"
                                      />
                                </StackLayout>

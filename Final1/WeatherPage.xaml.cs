@@ -12,6 +12,7 @@ namespace Final1
         public WeatherPage()
         {
             InitializeComponent();
+
             GetWeather();
         }
 

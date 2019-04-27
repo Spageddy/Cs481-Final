@@ -236,10 +236,10 @@ namespace Final1.Models
         public Uri Url { get; set; }
 
         [JsonProperty("width")]
-        public long Width { get; set; }
+        public string Width { get; set; }
 
         [JsonProperty("height")]
-        public long Height { get; set; }
+        public string Height { get; set; }
     }
 
     public partial class Location

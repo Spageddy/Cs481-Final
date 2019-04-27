@@ -5,15 +5,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Final1"
     xmlns:xfg="clr-namespace:XFGloss;assembly=XFGloss"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    ios:Page.UseSafeArea="true"
     x:Class="Final1.MainPage">
     
     <xfg:ContentPageGloss.BackgroundGradient>
         <xfg:Gradient Rotation="150" >
-            <xfg:GradientStep StepColor="Green" StepPercentage="0" />
-            <xfg:GradientStep StepColor="Blue" StepPercentage="1" />
+            <xfg:GradientStep StepColor="#69c2c0" StepPercentage="0" />
+            <xfg:GradientStep StepColor="#bef692" StepPercentage="1" />
         </xfg:Gradient>
     </xfg:ContentPageGloss.BackgroundGradient>
-    
+         <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="size">15</x:Double>
+            <Color x:Key="color">White</Color>
+            <Color x:Key="maincolor">White</Color>
+        </ResourceDictionary>
+        </ContentPage.Resources>
     <ContentPage.Content>
        
 <Grid>
@@ -24,15 +32,25 @@
         <Button
             x:Name="locationButton"
             Grid.Row="0"
-            Text="Get Location"
+            Text="        &#x1F4CD; Use Current Location         "
+            BackgroundColor="Transparent"
             VerticalOptions="End"
             HorizontalOptions="Center"
-             Clicked="GetLocation_Clicked"
+            Clicked="GetLocation_Clicked"
+            BorderWidth=".3"
+            FontSize="{DynamicResource Key=size}"
+            TextColor="{DynamicResource Key=color }"
+            BorderColor="Gray"
             />
         <Entry
             x:Name="locationEntry"
+            BackgroundColor="Transparent"
+            
             Grid.Row="1"
             Placeholder="Enter a location: Zipcode,City,State"
+            PlaceholderColor="{DynamicResource Key=color }"
+            TextColor="{DynamicResource Key=color }"
+            FontSize="{DynamicResource Key=size}"
             VerticalOptions="Start"
             HorizontalOptions="Center"
             Completed="Location_Entered"

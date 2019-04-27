@@ -10,6 +10,8 @@ namespace Final1
         public SecondPage()
         {
             InitializeComponent();
+
+            NavigationPage.SetHasNavigationBar(this, false);
             Children.Add(new WeatherPage() { Title = "Weather" });
             Children.Add(new YelpPage() { Title = "Food" });
             Children.Add(new OtherEventPage() { Title = "Events" });
