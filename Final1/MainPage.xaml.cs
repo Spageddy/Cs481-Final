@@ -33,6 +33,7 @@ namespace Final1
                     latitude = location.Latitude;
                     longitude = location.Longitude;
                     Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                    //await Navigation.PushAsync(new SecondPage(), true);
                 }
             }
             catch (FeatureNotSupportedException fnsEx)
@@ -58,6 +59,7 @@ namespace Final1
                     latitude = location.Latitude;
                     longitude = location.Longitude;
                     Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                    //await Navigation.PushAsync(new SecondPage(), true);
                 }
             }
             catch (FeatureNotSupportedException fnsEx)

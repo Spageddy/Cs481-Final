@@ -12,12 +12,13 @@
     <xfg:ContentPageGloss.BackgroundGradient>
         <xfg:Gradient Rotation="150" >
             <xfg:GradientStep StepColor="#69c2c0" StepPercentage="0" />
-            <xfg:GradientStep StepColor="#bef692" StepPercentage="1" />
+            <xfg:GradientStep StepColor="#dfd0a8" StepPercentage="1" />
         </xfg:Gradient>
     </xfg:ContentPageGloss.BackgroundGradient>
          <ContentPage.Resources>
         <ResourceDictionary>
-            <x:Double x:Key="size">15</x:Double>
+            <x:Double x:Key="size">20</x:Double>
+            <x:Double x:Key="entrysize">50</x:Double>
             <Color x:Key="color">White</Color>
             <Color x:Key="maincolor">White</Color>
         </ResourceDictionary>
@@ -32,28 +33,29 @@
         <Button
             x:Name="locationButton"
             Grid.Row="0"
-            Text="        &#x1F4CD; Use Current Location         "
+            Text="             &#x1F4CD; Use Current Location             "
             BackgroundColor="Transparent"
             VerticalOptions="End"
             HorizontalOptions="Center"
             Clicked="GetLocation_Clicked"
-            BorderWidth=".3"
+            BorderWidth=".25"
             FontSize="{DynamicResource Key=size}"
             TextColor="{DynamicResource Key=color }"
+            HeightRequest="{DynamicResource Key=entrysize}"
             BorderColor="Gray"
             />
         <Entry
             x:Name="locationEntry"
             BackgroundColor="Transparent"
-            
             Grid.Row="1"
-            Placeholder="Enter a location: Zipcode,City,State"
+            Placeholder="Enter a Location: Zipcode,City,State"
             PlaceholderColor="{DynamicResource Key=color }"
             TextColor="{DynamicResource Key=color }"
             FontSize="{DynamicResource Key=size}"
             VerticalOptions="Start"
             HorizontalOptions="Center"
             Completed="Location_Entered"
+            HeightRequest="{DynamicResource Key=entrysize}"
             />  
     </Grid>
    </ContentPage.Content>
