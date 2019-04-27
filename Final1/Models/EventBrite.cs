@@ -97,7 +97,7 @@ namespace Final1.Models
         public bool IsSeriesParent { get; set; }
 
         [JsonProperty("inventory_type")]
-        public InventoryType InventoryType { get; set; }
+        public string InventoryType { get; set; }
 
         [JsonProperty("is_reserved_seating")]
         public bool IsReservedSeating { get; set; }
@@ -333,7 +333,8 @@ namespace Final1.Models
             {
                 return l;
             }
-            throw new Exception("Cannot unmarshal type long");
+            //throw new Exception("Cannot unmarshal type long");
+            return l;
         }
 
         public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
