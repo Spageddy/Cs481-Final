@@ -71,7 +71,7 @@
                                    VerticalTextAlignment="Center"
                                    FontSize="{DynamicResource Key=sizesmallest}"
                                    TextColor="{DynamicResource Key=color}"/>
-                                <Label Text="{Binding Price, StringFormat='Price: {0}'}"
+                                <Label Text="{Binding Price, StringFormat='Price: {0} |'}"
                                    Grid.Column="1"
                                    Grid.Row="2"
                                    VerticalTextAlignment="Center"

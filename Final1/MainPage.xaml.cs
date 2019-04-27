@@ -17,7 +17,9 @@ namespace Final1
         public MainPage()
         {
             InitializeComponent();
+            
         }
+
         async void Location_Entered(object sender, System.EventArgs e)
         {
             try
@@ -74,8 +76,10 @@ namespace Final1
             {
                 // Unable to get location
             }
+
             await Navigation.PushAsync(new SecondPage(), true);
         }
+
     }
 }
 

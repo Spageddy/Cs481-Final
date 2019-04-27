@@ -21,7 +21,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>8.0</string>
+	<string>12.1</string>
 	<key>CFBundleDisplayName</key>
 	<string>Final1</string>
 	<key>CFBundleIdentifier</key>
@@ -35,6 +35,6 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>New Entry</string>
+	<string>Allow pls!</string>
 </dict>
 </plist>
