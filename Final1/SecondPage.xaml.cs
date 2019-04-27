@@ -12,7 +12,7 @@ namespace Final1
             InitializeComponent();
             Children.Add(new WeatherPage() { Title = "Weather" });
             Children.Add(new YelpPage() { Title = "Food" });
-            Children.Add(new EventPage() { Title = "Events" });
+            Children.Add(new OtherEventPage() { Title = "Events" });
         }
     }
 }

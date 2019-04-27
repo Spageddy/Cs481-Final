@@ -2,7 +2,7 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Final1.EventPage">
+    x:Class="Final1.OtherEventPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <x:Double x:Key="size">25</x:Double>
@@ -16,7 +16,7 @@
                 <ListView 
             ItemTapped="Handle_ItemTapped"
             HasUnevenRows="true"
-            x:Name="TicketMasterList">
+            x:Name="EventBriteList">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell Height="70">
@@ -39,39 +39,39 @@
                                 WidthRequest="{DynamicResource Key=size}"
                                 >
                                 <Image.Source>
-                                    <UriImageSource Uri="{Binding Images[0].Url}"/>
+                                    <UriImageSource Uri="{Binding Logo.Url.OriginalString}"/>
                                 </Image.Source>
                             </Image>
                             
-                            <Label Text="{Binding Name}"
+                            <Label Text="{Binding Name.Text}"
                                    Grid.Column="1"
                                    Grid.Row="0"
                                    FontSize="{DynamicResource Key=size}"
                                    TextColor="{DynamicResource Key=maincolor}"
                                    />
-                            <Label Text="{Binding Dates.Start.LocalDate, StringFormat='{0: dddd MMMM/dd}'}"
+                            <Label Text="{Binding Summary, StringFormat='{0}'}"
                                    Grid.Column="1"
                                    Grid.Row="2"
                                    Margin="0"
                                    VerticalTextAlignment="Start"
-                                   FontSize="{DynamicResource Key=sizesmaller}"
+                                   FontSize="{DynamicResource Key=sizesmallest}"
                                    TextColor="{DynamicResource Key=color}"
                                    />
                             <StackLayout 
                                 Grid.Column="1"
                                 Grid.Row="1" 
                                 Orientation="Horizontal">
-                            <Label Text="{Binding Classifications[0].Genre.Name, StringFormat='{0} | '} "
+                            <Label Text="{Binding Start.Utc.DateTime, StringFormat='{0: dddd MMMM-dd-yyyy @ hh:mm tt}'} "
                                    VerticalTextAlignment="Center"
-                                   FontSize="{DynamicResource Key=sizesmallest}"
+                                   FontSize="{DynamicResource Key=sizesmaller}"
                                    TextColor="{DynamicResource Key=color}"/>
-                                <Label Text="{Binding Classifications[0].SubGenre.Name, StringFormat='{0} | '}"
+                                <Label Text="{Binding , StringFormat='{0} | '}"
                                    Grid.Column="1"
                                    Grid.Row="2"
                                    VerticalTextAlignment="Center"
                                    FontSize="{DynamicResource Key=sizesmallest}"
                                    TextColor="{DynamicResource Key=color}"/>
-                                <Label Text="{Binding Classifications[0].SubType.Name}"
+                                <Label Text="{Binding }"
                                    Grid.Column="1"
                                    Grid.Row="2"
                                    VerticalTextAlignment="Center"
