@@ -7,6 +7,7 @@ namespace Final1
 {
     public partial class YelpPage : ContentPage
     {
+        static public Yelp.Api.Models.SearchResponse yelpresults;
         public YelpPage()
         {
             InitializeComponent();
@@ -19,6 +20,16 @@ namespace Final1
             string apiKey = "nkM6iyU8QrPv-_ExXt7_bDRVT8yxSEmvPXBMs7d9zO8f8ZrFmervQr9dI3jBVTLBQrnfG9x6yiCsL40ebj9D7Slr7KnothJLWPCvUDO4m_P_ZZQZ7i-errcNguyyXHYx";
             var client = new Yelp.Api.Client(apiKey);
             var results = await client.SearchBusinessesAllAsync("food", MainPage.latitude, MainPage.longitude);
+            yelpresults = results;
+            YelpList.ItemsSource = results.Businesses;
+        }
+
+        async void Handle_Completed(object sender, System.EventArgs e)
+        {
+            string apiKey = "nkM6iyU8QrPv-_ExXt7_bDRVT8yxSEmvPXBMs7d9zO8f8ZrFmervQr9dI3jBVTLBQrnfG9x6yiCsL40ebj9D7Slr7KnothJLWPCvUDO4m_P_ZZQZ7i-errcNguyyXHYx";
+            var client = new Yelp.Api.Client(apiKey);
+            var results = await client.SearchBusinessesAllAsync(search.Text, MainPage.latitude, MainPage.longitude);
+           
             YelpList.ItemsSource = results.Businesses;
         }
 
