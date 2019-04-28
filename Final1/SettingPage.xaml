@@ -49,7 +49,7 @@
                 
              <Button
             x:Name="randomButton"
-            Text="               Random             "
+            Text="     Random(Beta)     "
             BackgroundColor="Transparent"
             VerticalOptions="End"
             HorizontalOptions="Center"

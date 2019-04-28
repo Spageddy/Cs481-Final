@@ -20,8 +20,8 @@ namespace Final1
         void Random(object sender, System.EventArgs e)
         {
             Random random = new Random();
-            int randomYNum = random.Next(0, YelpPage.yelpresults.Businesses.Count);
-            int randomENum = random.Next(0, OtherEventPage.eventbriteresults.Events.Count);
+            int randomYNum = random.Next(0, YelpPage.yelpresults.Businesses.Count-1);
+            int randomENum = random.Next(0, OtherEventPage.eventbriteresults.Events.Count-1);
 
             var yelprandom = YelpPage.yelpresults.Businesses[randomYNum];
             var eventrandom = OtherEventPage.eventbriteresults.Events[randomENum];
@@ -34,7 +34,7 @@ namespace Final1
             yPrice.Text = "Price: " + yelprandom.Price + " |";
             yRating.Text = "Rating: " + yelprandom.Rating.ToString();
 
-            eImage.Source = eventrandom.Logo.Url.OriginalString;
+            eImage.Source = eventrandom.Logo.Url.OriginalString.ToString();
             eName.Text = eventrandom.Name.Text;
             eSummary.Text = eventrandom.Summary;
             eDate.Text = String.Format("{0:ddd MMMM}-{0:dd}-{0:yyyy} @ {0:hh:mm tt}",
