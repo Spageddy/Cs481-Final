@@ -76,10 +76,10 @@ namespace Final1.Models
         public long TxTimeLimit { get; set; }
 
         [JsonProperty("hide_start_date")]
-        public bool HideStartDate { get; set; }
+        public string HideStartDate { get; set; }
 
         [JsonProperty("hide_end_date")]
-        public bool HideEndDate { get; set; }
+        public string HideEndDate { get; set; }
 
         [JsonProperty("locale")]
         public string Locale { get; set; }

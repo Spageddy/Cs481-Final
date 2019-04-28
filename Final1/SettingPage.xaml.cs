@@ -12,9 +12,9 @@ namespace Final1
             InitializeComponent();
         }
 
-        void Change_Location(object sender, System.EventArgs e)
+        async void Change_Location(object sender, System.EventArgs e)
         {
-
+            await Navigation.PopToRootAsync();
         }
 
         void Random(object sender, System.EventArgs e)
@@ -28,9 +28,9 @@ namespace Final1
 
             yImage.Source = yelprandom.ImageUrl;
             yName.Text = yelprandom.Name;
-            yDistance.Text = yelprandom.Distance.ToString() + " miles away";
+            yDistance.Text = yelprandom.DistanceAway.ToString() + " miles away";
             yCategory.Text = yelprandom.Categories[0].Title + " |";
-            ySubcategory.Text = yelprandom.Categories[1].Title + " |";
+            //ySubcategory.Text = yelprandom.Categories[1].Title + " |";
             yPrice.Text = "Price: " + yelprandom.Price + " |";
             yRating.Text = "Rating: " + yelprandom.Rating.ToString();
 
