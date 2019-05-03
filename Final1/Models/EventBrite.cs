@@ -58,10 +58,10 @@ namespace Final1.Models
         public object CapacityIsCustom { get; set; }
 
         [JsonProperty("status")]
-        public Status Status { get; set; }
+        public string Status { get; set; }
 
         [JsonProperty("currency")]
-        public Currency Currency { get; set; }
+        public string Currency { get; set; }
 
         [JsonProperty("listed")]
         public bool Listed { get; set; }
