@@ -7,7 +7,9 @@ using System.Text;
 using Final1.Models;
 using Newtonsoft.Json;
 using Xamarin.Forms;
-
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 namespace Final1
 {
     public partial class OtherEventPage : ContentPage
@@ -45,6 +47,9 @@ namespace Final1
 
         void Handle_Completed(object sender, System.EventArgs e)
         {
+            Analytics.TrackEvent("User used event search box");
+
+
             var client = new HttpClient();
             var ApiUrl = "https://www.eventbriteapi.com/v3/events/search/?location.latitude="
             + MainPage.latitude + "&location.longitude=" + MainPage.longitude + "&q=" + search.Text;
@@ -69,6 +74,7 @@ namespace Final1
 
         async void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
+            Analytics.TrackEvent("User tapped on event item");
 
             var selected = (Event)e.Item;
             string fixedurl = selected.Url.OriginalString;

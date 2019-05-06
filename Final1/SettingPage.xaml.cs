@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace Final1
 {
@@ -14,11 +17,15 @@ namespace Final1
 
         async void Change_Location(object sender, System.EventArgs e)
         {
+            Analytics.TrackEvent("User used changed location botton");
+
             await Navigation.PopToRootAsync();
         }
 
         void Random(object sender, System.EventArgs e)
         {
+            Analytics.TrackEvent("User used random button");
+
             Random random = new Random();
             int randomYNum = random.Next(0, YelpPage.yelpresults.Businesses.Count-1);
             int randomENum = random.Next(0, OtherEventPage.eventbriteresults.Events.Count-1);
@@ -30,7 +37,6 @@ namespace Final1
             yName.Text = yelprandom.Name;
             yDistance.Text = yelprandom.DistanceAway.ToString() + " miles away";
             yCategory.Text = yelprandom.Categories[0].Title + " |";
-            //ySubcategory.Text = yelprandom.Categories[1].Title + " |";
             yPrice.Text = "Price: " + yelprandom.Price + " |";
             yRating.Text = "Rating: " + yelprandom.Rating.ToString();
 

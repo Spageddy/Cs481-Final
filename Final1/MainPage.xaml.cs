@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+
 using Xamarin.Essentials;
 
 namespace Final1
@@ -22,6 +26,8 @@ namespace Final1
 
         async void Location_Entered(object sender, System.EventArgs e)
         {
+            Analytics.TrackEvent("Entered location in location entry box");
+
             try
             {
                 var address = locationEntry.Text;
@@ -49,6 +55,7 @@ namespace Final1
 
         async void GetLocation_Clicked(object sender, System.EventArgs e)
         {
+            Analytics.TrackEvent("Clicked Get location Button");
             try
             {
                 var request = new GeolocationRequest(GeolocationAccuracy.Medium);
